@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <title>Kresson Golf Course | Voorhees, NJ</title>
+  <style>
+    body {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #003e00;
+      padding: 0.75rem 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      padding-bottom: 3px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #71ba71;
+      transition: width 0.25s ease-in-out;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a:hover {
+      color: #aef5ae;
+    }
+
+    .dot {
+      color: white;
+      margin: 0 6px;
+      font-weight: normal;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+      color: #71ba71;
+    }
+
+    .hero {
+      position: relative;
+      background-image: url('kresson_landscape.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 320px;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem; /* 👈 THIS is the key to spacing between h2 and p */
+      color: #fff;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .hero-text h2 {
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 700;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+      margin: 0 0 0.5rem 0;
+    }
+
+    .hero-text p {
+      font-size: clamp(1rem, 3.5vw, 1.4rem);
+      font-weight: 500;
+      margin: 0;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-overlay {
+      background-color: rgba(0, 0, 0, 0.45); /* semi-transparent overlay */
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-text {
+      color: #fff;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .hero-text h2 {
+      font-size: clamp(1.5rem, 5vw, 2.8rem);
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+      margin: 0;
+    }
+
+    .content {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .about-boxes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .about-item {
+      background-color: #ffffff;
+      border-left: 5px solid #0f500f;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .about-item:hover {
+      background-color: rgba(0, 128, 0, 0.05); /* subtle green highlight */
+      transform: scale(1.05);
+    }
+
+    .about-item h3 {
+      margin-top: 0;
+      color: #0f500f;
+      font-size: 1.2rem;
+    }
+
+    .about-item p {
+      margin-bottom: 0;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    #rates {
+      background-color: rgb(49, 90, 51);
+      color: white;
+      text-align: center;
+      padding: 1rem 2rem 3rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    #rates h2 {
+      margin-bottom: 1.5rem;
+    }
+
+    #rates ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    #rates ul li {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      min-width: 200px;
+      text-align: center;
+    }
+
+    #rates ul li span {
+      font-weight: bold;
+      display: block;
+      margin-top: 0.3rem;
+      font-size: 1.6rem;
+    }
+
+    #rates ul li:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+      transition: all 0.2s ease-in-out;
+    }
+
+    #booking p {
+      background-color: #e2f5e2;
+      padding: 1rem 1.5rem;
+      border-left: 5px solid #0f500f;
+      border-radius: 6px;
+      font-size: 1.1rem;
+    }
+
+    #location iframe {
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #contact a {
+      color: #0f500f;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    a {
+      color: #0f500f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile responsiveness fixes */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0.5rem 0.5rem;
+        font-size: 0.95rem;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        margin: 6px 8px;
+        font-size: 0.95rem;
+      }
+
+      .about-boxes {
+        grid-template-columns: 1fr;
+      }
+
+      #rates ul {
+        flex-direction: column;
+        align-items: center;  /* ✅ This ensures items center inside the ul */
+        padding: 0;
+      }
+
+      #rates ul li {
+        width: 90%;
+        max-width: 320px;
+        min-width: unset;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        height: 240px;
+      }
+
+      .hero-text h2 {
+        font-size: clamp(1.2rem, 6vw, 2rem);
+      }
+
+      .header-wrap h1 {
+        font-size: 1.5rem;
+      }
+
+      .header-wrap p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#about">About</a> <span style="color:white">•</span>
+    <a href="#rates">Rates</a> <span style="color:white">•</span>
+    <a href="#location">Location</a> <span style="color:white">•</span>
+    <a href="#booking">Booking</a> <span style="color:white">•</span>
+    <a href="#gallery">Gallery</a> <span style="color:white">•</span>
+    <a href="#contact">Contact</a>
+  </nav>
+
+<div class="hero">
+  <div class="hero-overlay">
+    <div class="hero-text">
+      <h2>Kresson Golf Course</h2>
+      <p>The Proud Golf Course of Voorhees Township</p>
+    </div>
+  </div>
+</div>
+
+  <div class="content" id="about">
+    <h2>About The Course</h2>
+    <div class="about-boxes">
+      <div class="about-item">
+        <h3>🏌️‍♂️ All Skill Levels Welcome</h3>
+        <p>We offer 4700 yards of play and a par of 68 — perfect for beginners and seasoned golfers alike.</p>
+      </div>
+      <div class="about-item">
+        <h3>🌅 Scenic Views</h3>
+        <p>Our 18-hole course wraps around Cedar Lake, delivering a relaxing and beautiful round every time.</p>
+      </div>
+      <div class="about-item">
+        <h3>⛳ Practice Facilities</h3>
+        <p>Warm up on our convenient putting green and driving range before hitting the course.</p>
+      </div>
+      <div class="about-item">
+        <h3>🥤 Pro Shop</h3>
+        <p>Grab apparel, snacks, and gear before or after your round — all available at our Pro Shop.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content" id="rates" style="max-width: none;">
+    <h2>Cart & Walking Rates</h2>
+    <ul>
+      <li>9 Holes with Cart<br><span>$25</span></li>
+      <li>18 Holes with Cart<br><span>$40</span></li>
+      <li>Walking 9 Holes<br><span>$15</span></li>
+      <li>Walking 18 Holes<br><span>$25</span></li>
+    </ul>
+  </div>
+
+  <div class="content" id="location">
+    <h2>Location</h2>
+    <p>
+      📍 Address:
+      <a href="https://www.google.com/maps?q=298+Kresson+-+Gibbsboro+Rd,+Voorhees+Township,+NJ+08043" 
+        target="_blank">
+        298 Kresson - Gibbsboro Rd, Voorhees Township, NJ 08043
+      </a>
+    </p>
+    <div style="margin-top: 1rem;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.3691959794587!2d-74.9321732!3d39.8479434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c132e32d311b23%3A0xda7997deb194ea22!2sKresson%20Golf%20Courses!5e1!3m2!1sen!2sus!4v1752375215403!5m2!1sen!2sus" 
+        width="100%" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+
+  <div class="content" id="booking">
+    <h2>Booking</h2>
+    <p>All bookings are made by phone. Please call us at <a href="tel:+18564291530">(856) 429-1530</a> to schedule your tee time.</p>
+  </div>
+
+  <div class="content" id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="img1.jpg">
+      <img src="img2.jpg">
+      <img src="img3.jpg">
+      <img src="img4.jpg">
+      <img src="img5.jpg">
+      <img src="img6.jpg">
+    </div>
+  </div>
+
+  <div class="content" id="contact">
+    <h2>Contact Us</h2>
+    <p>Phone: <a href="tel:+18564291530">(856) 429-1530</a></p>
+    <p>Email: <a href="mailto:info@kressongolf.com">info@kressongolf.com</a></p>
+    <p>Facebook: <a href="https://www.facebook.com/kressongolf/" target="_blank">facebook.com/kressongolf</a></p>
+  </div>
+
+  <div class="footer">
+    Have questions? Feel free to give us a call at (856) 429-1530!
+  </div>
+</body>
+</html>
