@@ -50,18 +50,14 @@
     }
 
     nav a:hover {
-      color: #aef5ae;
+      text-decoration: none;
+      color: #71ba71;
     }
 
     .dot {
       color: white;
       margin: 0 6px;
       font-weight: normal;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-      color: #71ba71;
     }
 
     .hero {
@@ -76,21 +72,21 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.2rem; /* 👈 THIS is the key to spacing between h2 and p */
+      gap: 1.2rem; /* THIS is the key to spacing between h2 and p */
       color: #fff;
       text-align: center;
       padding: 0 1rem;
     }
 
     .hero-text h2 {
-      font-size: clamp(2.7rem, 7vw, 3rem);
+      font-size: clamp(2.2rem, 7vw, 3rem);
       font-weight: 700;
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
       margin: 0 0 0.5rem 0;
     }
 
     .hero-text p {
-      font-size: clamp(1.1rem, 4vw, 1.5rem);
+      font-size: clamp(1rem, 3.5vw, 1.4rem);
       font-weight: 500;
       margin: 0;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
@@ -227,26 +223,22 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
 
-    #contact a {
-      color: #0f500f;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    #contact a:hover {
-      text-decoration: underline;
-    }
-
     .footer {
       background-color: #333;
       color: white;
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 0.3rem 1rem;
       margin-top: 2rem;
       font-size: 1.05rem;
       line-height: 1.6;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    .footer a {
+      color: white;
+      text-decoration: underline;
+      text-decoration: none;
     }
 
     a {
@@ -313,10 +305,10 @@
 
   <nav>
     <a href="#about">About</a> <span style="color:white">•</span>
+    <a href="#booking">Booking</a> <span style="color:white">•</span>
     <a href="#rates">Rates</a> <span style="color:white">•</span>
     <a href="#location">Location</a> <span style="color:white">•</span>
-    <a href="#gallery">Gallery</a> <span style="color:white">•</span>
-    <a href="#contact">Contact</a>
+    <a href="#gallery">Gallery</a> <span style="color:white"></span>
   </nav>
 
 <div class="hero">
@@ -329,7 +321,7 @@
 </div>
 
   <div class="content" id="about">
-    <h2>About The Course</h2>
+    <h2>About Us</h2>
     <div class="about-boxes">
       <div class="about-item">
         <h3>🏌️‍♂️ All Skill Levels Welcome</h3>
@@ -399,15 +391,8 @@
     </div>
   </div>
 
-  <div class="content" id="contact">
-    <h2>Contact Us</h2>
-    <p>Phone: <a href="tel:+18564291530">(856) 429-1530</a></p>
-    <p>Email: <a href="mailto:info@kressongolf.com">info@kressongolf.com</a></p>
-    <p>Facebook: <a href="https://www.facebook.com/kressongolf/" target="_blank">facebook.com/kressongolf</a></p>
-  </div>
-
   <div class="footer">
-    Have questions? Feel free to give us a call at (856) 429-1530!
+    <p></p><a href="tel:+18564291530">(856) 429-1530</a> | <a href="mailto:info@kressongolf.com">info@kressongolf.com</a> | <a href="https://www.facebook.com/kressongolf/" target="_blank">facebook.com/kressongolf</a></p>
   </div>
 </body>
 </html>
