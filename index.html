@@ -197,15 +197,16 @@
       transition: all 0.2s ease-in-out;
     }
 
-    #booking p {
+    .note {
       background-color: #e2f5e2;
       padding: 1rem 1.5rem;
       border-left: 5px solid #0f500f;
       border-radius: 6px;
       font-size: 1.1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
-    #location iframe {
+    iframe {
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
@@ -220,7 +221,12 @@
     .gallery img {
       width: 100%;
       border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      transition: all 0.2s ease-in-out;
     }
 
     .footer {
@@ -305,8 +311,8 @@
 
   <nav>
     <a href="#about">About</a> <span style="color:white">•</span>
-    <a href="#booking">Booking</a> <span style="color:white">•</span>
     <a href="#rates">Rates</a> <span style="color:white">•</span>
+    <a href="#booking">Booking</a> <span style="color:white">•</span>
     <a href="#location">Location</a> <span style="color:white">•</span>
     <a href="#gallery">Gallery</a> <span style="color:white"></span>
   </nav>
@@ -336,17 +342,10 @@
         <p>Warm up on our convenient putting green and driving range before hitting the course.</p>
       </div>
       <div class="about-item">
-        <h3>🥤 Pro Shop</h3>
-        <p>Grab apparel, snacks, and gear before or after your round — all available at our Pro Shop.</p>
+        <h3>🥤 The Pro Shop</h3>
+        <p>Grab drinks, snacks, and gear before or after your round — all available at our Pro Shop.</p>
       </div>
     </div>
-  </div>
-
-  <div class="content" id="booking">
-    <h2>Booking</h2>
-    <!-- Google Calendar Appointment Scheduling begin -->
-<iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ34xmsBt_IUQNcS55mE9iAlVHpLl9wdS-fg6Ke_hytenVBILgPDXtTHtByUUTDbatzsr3fuN96K?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
-<!-- end Google Calendar Appointment Scheduling -->
   </div>
 
   <div class="content" id="rates" style="max-width: none;">
@@ -360,10 +359,21 @@
     </ul>
   </div>
 
+  <div class="content" id="booking">
+    <h2>Booking</h2>
+    <p class="note">📆 Please review pricing above before booking a tee time.</p>
+    <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ34xmsBt_IUQNcS55mE9iAlVHpLl9wdS-fg6Ke_hytenVBILgPDXtTHtByUUTDbatzsr3fuN96K?gv=true" 
+      style="border: 0" 
+      width="100%" 
+      height="700" 
+      frameborder="0">
+    </iframe>
+  </div>
+
   <div class="content" id="location">
     <h2>Location</h2>
-    <p>
-      📍 Address:
+    <p class="note">
+      📍 
       <a href="https://maps.app.goo.gl/Sym4cHueyMq8BPLU6" 
         target="_blank">
         298 Kresson - Gibbsboro Rd, Voorhees Township, NJ 08043
@@ -372,7 +382,7 @@
     <div style="margin-top: 1rem;">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.3691959794587!2d-74.9321732!3d39.8479434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c132e32d311b23%3A0xda7997deb194ea22!2sKresson%20Golf%20Courses!5e1!3m2!1sen!2sus!4v1752375215403!5m2!1sen!2sus" 
         width="100%" 
-        height="450" 
+        height="600" 
         style="border:0;" 
         allowfullscreen="" 
         loading="lazy" 
